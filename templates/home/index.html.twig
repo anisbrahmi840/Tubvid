@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<style>
+    .mw {  max-width: 2000px; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="container jumbotron mw">
+
+    <h2>Top teen videos</h2>
+    <div class="row">
+            {% for video in videos  %}
+                <div class="col-md-6">
+                    <video width="400" height="250" controls>
+                        <source src="{{ vich_uploader_asset(video, 'imageFile') }}" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}
